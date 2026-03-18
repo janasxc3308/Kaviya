@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Kaviya ❤️</title>
+
+<!-- Stylish Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background: url("bg.jpg") no-repeat center center/cover;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Title */
+h1 {
+  margin-top: 120px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  font-size: 28px;
+}
+
+/* Love text style */
+.loveText {
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+}
+
+/* Tamil poem */
+.poem {
+  font-size: 18px;   /* 👈 size குறைச்சது */
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="title">Kaviya ❤️ Do you love me?</h1>
+
+<div class="buttons">
+  <button onclick="yesClick()">YES 💖</button>
+  <button id="noBtn" onclick="noClick()">NO 😜</button>
+</div>
+
+<audio id="loveSong" src="love.mp3"></audio>
+
+<script>
+let noCount = 0;
+
+function yesClick() {
+  document.getElementById("loveSong").play();
+
+  document.getElementById("title").innerHTML =
+  "<div class='loveText'>💖 I Love You Kaviya 💖</div>" +
+  "<div class='poem'>பலர் போதைக்கு அடிமை ஆகலாம் ஆனால்,<br><br>" +
+  "நான் ஆக மாட்டேன் ஏனொன்றால்,<br><br>" +
+  "இந்த சிதைக்கு நான் அடிமை 💖<br><br>" +
+  "—இதுவே இந்த இராமனின் கவிதை ✍️</div>";
+}
+
+function noClick() {
+  noCount++;
+
+  if(noCount < 3) {
+    moveNo();
+  } else {
+    document.getElementById("title").innerText = "😂 April Fool Kaviya!";
+  }
+}
+
+function moveNo() {
+  var btn = document.getElementById("noBtn");
+
+  btn.style.position = "absolute";
+
+  var x = Math.random() * (window.innerWidth - 100);
+  var y = Math.random() * (window.innerHeight - 50);
+
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
